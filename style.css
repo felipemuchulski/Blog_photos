@@ -127,6 +127,8 @@ main h1 {
     transition-property: filter;
     transition-duration: 1s;
     transition-delay: 1s;
+
+    display: block;
 }
 
 .item img:hover {
@@ -162,4 +164,42 @@ footer p {
     text-align: center;
     padding: 1.6rem;
     font-weight: 600;
+}
+
+
+header {
+    --starty: -100%;
+    animation: move;
+    animation-duration: .1s;
+}
+
+footer {
+    --starty: 100%;
+    animation-name: move;
+    animation-duration: .1s;
+}
+
+.item {
+    --delay: .5s;
+    animation-name: appear;
+    animation-duration: .4s;
+    animation-fill-mode: backwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes move {
+    from {
+        transform: translateY(var(--starty));
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
 }
